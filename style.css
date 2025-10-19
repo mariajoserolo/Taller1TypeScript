@@ -1,0 +1,16 @@
+h1{
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+}
+#encabezado{
+    background-color: #08A4BD;
+}
+.container{
+        max-width: 500px;
+        margin-left: 50px;
+}
+
+h5{
+    font-size: 18px;
+}
