@@ -4,12 +4,15 @@ var seriesTBody = document.getElementById('series');
 //const btnfilterByName: HTMLElement = document.getElementById("btton-filterByName")!;
 //const inputSearchBox: HTMLInputElement = <HTMLInputElement> document.getElementById("search-box")!;
 //btnfilterByName.onclick = () => applyFilterByName();
+/*<td><a href="${serie.linkSerie}" target="_blank">${serie.name}</a></td>*/
 renderSeriesInTable(dataSeries);
 function renderSeriesInTable(series) {
     console.log("Desplegando series");
     series.forEach(function (serie) {
         var trElement = document.createElement("tr");
-        trElement.innerHTML = "<td>".concat(serie.id, "</td>\n                              <td><a href=\"").concat(serie.linkSerie, "\" target=\"_blank\">").concat(serie.name, "</a></td>\n                              <td>").concat(serie.channel, "</td>\n                              <td>").concat(serie.seasons, "</td>");
+        trElement.innerHTML = "<td>".concat(serie.id, "</td>   \n                              <td>").concat(serie.name, "</td>\n                              <td>").concat(serie.channel, "</td>\n                              <td>").concat(serie.seasons, "</td>");
+        //seriesTBody.appendChild(trElement);
+        trElement.addEventListener("click", function () { return showInfoSerie(serie); });
         seriesTBody.appendChild(trElement);
     });
     var promedio = seasonsAverage(series);
@@ -26,6 +29,21 @@ function renderSeriesInTable(series) {
 /*function searchSerieByName(nameKey: string, series: Serie[]){
     return nameKey === '' ? dataSeries : series.filter(c => c.name.match(nameKey));
 }*/
+function showInfoSerie(serie) {
+    var card = document.getElementById("card");
+    var img = document.getElementById("card-img");
+    var tit = document.getElementById("card-title");
+    var text = document.getElementById("card-text");
+    var link = document.getElementById("card-link");
+    card.style.display = "block";
+    //Esto se hace para que cargue la imagen y se pueda mostrar :)
+    var nuevaUrl = "https://images.weserv.nl/?url=";
+    img.src = nuevaUrl + serie.img.replace("https://", "");
+    img.alt = serie.name;
+    tit.textContent = serie.name;
+    text.textContent = serie.descp;
+    link.href = serie.linkSerie;
+}
 function seasonsAverage(series) {
     var sumaTotalSeasons = 0;
     //let totalSeries: number = 0;

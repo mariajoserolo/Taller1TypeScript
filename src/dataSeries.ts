@@ -1,10 +1,10 @@
 import { Serie } from "./Serie.js";
 
-/*De esta manera está mandando error porque muestro menos de los atributos que tengo
+//De esta manera está mandando error porque muestro menos de los atributos que tengo
 export const dataSeries = [
     new Serie(1, "Breaking Bad", "AMC", 5, 
         "Set and filmed in Albuquerque, New Mexico, the series tells the story of Walter White, a struggling and depressed high school chemistry teacher who is diagnosed with lung cancer",
-    "https://www.amc.com/shows/breaking-bad", "https://i.imgur.com/GGje0vc.jpg",),
+    "https://www.amc.com/shows/breaking-bad", "https://i.imgur.com/GGje0vc.jpg"),
     new Serie(2, "Orange is the New Black", "Netflix", 6, 
         "The series begins revolving around Piper Chapman, a woman in her thirties living in New York City who is sentenced to 15 months in Litchfield Penitentiary",
         "https://www.netflix.com/co/title/70242311", "https://i.imgur.com/EvKe48G.jpg"),
@@ -15,7 +15,8 @@ export const dataSeries = [
         "https://www.bbc.co.uk/programmes/b018ttws", "https://i.imgur.com/02B7qhj.jpg"),
     new Serie(6, "A Very English Scandal", "BBC", 2, "A Very English Scandal is a fact-based three-part British television comedy-drama miniseries based on John Preston's book of the same name.",
         "https://www.bbc.co.uk/programmes/p065smy4", "https://i.imgur.com/D4y3DrQ.jpg")
-]*/
+]
+/*Ahora comentamos este para que se pueda usar la imagen y descripcion
 export const dataSeries = [
     new Serie(1, "Breaking Bad", "AMC", 5, "https://www.amc.com/shows/breaking-bad"),
     new Serie(2, "Orange is the New Black", "Netflix", 6, "https://www.netflix.com/co/title/70242311"),
@@ -23,4 +24,4 @@ export const dataSeries = [
     new Serie(4, "The Big Bang Theory", "CBS", 12, "https://www.cbs.com/shows/big_bang_theory/about/"),
     new Serie(5, "Sherlock", "BBC", 4, "https://www.bbc.co.uk/programmes/b018ttws"),
     new Serie(6, "A Very English Scandal", "BBC", 2, "https://www.bbc.co.uk/programmes/p065smy4")
-]
+]*/

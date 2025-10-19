@@ -6,6 +6,7 @@ let seriesTBody: HTMLElement = document.getElementById('series')!;
 //const inputSearchBox: HTMLInputElement = <HTMLInputElement> document.getElementById("search-box")!;
 
 //btnfilterByName.onclick = () => applyFilterByName();
+/*<td><a href="${serie.linkSerie}" target="_blank">${serie.name}</a></td>*/
 
 renderSeriesInTable(dataSeries);
 
@@ -13,10 +14,13 @@ function renderSeriesInTable(series: Serie[]): void{
     console.log("Desplegando series");
     series.forEach((serie) => {
         let trElement = document.createElement("tr");
-        trElement.innerHTML = `<td>${serie.id}</td>
-                              <td><a href="${serie.linkSerie}" target="_blank">${serie.name}</a></td>
+        trElement.innerHTML = `<td>${serie.id}</td>   
+                              <td>${serie.name}</td>
                               <td>${serie.channel}</td>
                               <td>${serie.seasons}</td>`;
+        //seriesTBody.appendChild(trElement);
+
+        trElement.addEventListener("click", () => showInfoSerie(serie));
         seriesTBody.appendChild(trElement);
     });
 
@@ -38,6 +42,27 @@ function renderSeriesInTable(series: Serie[]): void{
 /*function searchSerieByName(nameKey: string, series: Serie[]){
     return nameKey === '' ? dataSeries : series.filter(c => c.name.match(nameKey));
 }*/
+
+
+function showInfoSerie(serie: Serie): void{
+    let card = document.getElementById("card")!;
+    let img = document.getElementById("card-img") as HTMLImageElement;
+    let tit = document.getElementById("card-title")!;
+    let text = document.getElementById("card-text")!;
+    let link = document.getElementById("card-link") as HTMLAnchorElement;
+
+    card.style.display = "block";
+
+    //Esto se hace para que cargue la imagen y se pueda mostrar :)
+    const nuevaUrl = "https://images.weserv.nl/?url=";
+    img.src = nuevaUrl + serie.img.replace("https://", "");
+    img.alt = serie.name;
+    tit.textContent = serie.name;
+    text.textContent = serie.descp;
+    link.href = serie.linkSerie;
+
+
+}
 
 function seasonsAverage(series: Serie[]){
     let sumaTotalSeasons: number = 0;
